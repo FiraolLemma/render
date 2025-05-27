@@ -92,7 +92,13 @@ LOGOUT_REDIRECT_URL = 'home'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'contact/static'),
+    os.path.join(BASE_DIR, 'base/static'),
+    os.path.join(BASE_DIR, 'conversation/static'),
+    os.path.join(BASE_DIR, 'items/static'),
+    os.path.join(BASE_DIR, 'users/static'),
+] 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
@@ -134,7 +140,8 @@ cloudinary.config(
 )
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL'),
-        conn_max_age=600
+        default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'),  # Fallback for local dev
+        conn_max_age=600,
+        ssl_require=True  # Essential for Render PostgreSQL
     )
 }
