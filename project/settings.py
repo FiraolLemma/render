@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'your-development-secret-key' 
 DEBUG = True  
-ALLOWED_HOSTS = ['poultry.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localpoultry.onrender.com', 'localhost', '127.0.0.1']
 
 LANGUAGES = [
     ('en', _('English')),
