@@ -33,7 +33,7 @@
                         <a class="nav-link" href="{% url 'conversation:inbox' %}" aria-describedby="navbarUnreadDesc">
                             {% trans "Messages" %}
                             <span id="navbarUnread" class="unread-badge" aria-hidden="true">0</span>
-                        <!-- <span id="navbarUnreadDesc" class="sr-only">{% trans "Unread messages:" %} 0</span> -->
+                        
                         </a>
                     </li>
                     <li><a class="nav-link" href="{% url 'contact:contact_us' %}">{% trans "Contact" %}</a></li>
@@ -74,7 +74,13 @@
                     </a>
                     <div class="user-dropdown">
                         <button class="my-btn-user" aria-haspopup="true" aria-expanded="false" aria-label="{% trans 'User menu' %}">
+                            
+                            {% if user.profile.profile_picture %}
+                            <img src="{{ user.profile.profile_picture.url }}" 
+                         alt="Current Profile Picture" class="base_current-avatar">
+                            {% else %}
                             <i class="fas fa-user-circle" aria-hidden="true"></i>
+                            {% endif %}
                             <span class="username">{{ user.profile.user_name|default:user.phone_number }}</span>
                         </button>
                         <ul class="dropdown-menu">
@@ -145,13 +151,36 @@
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.youtube.com/channel/UC87ikLHxeF9SJH25JeVrceA" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
-                    <div class="newsletter">
-                        <p>{% trans "Subscribe to our newsletter" %}</p>
-                        <form class="newsletter-form">
-                            <input type="email" placeholder="{% trans 'Your email address' %}" required>
-                            <button type="submit" class="btn btn-primary">{% trans "Subscribe" %}</button>
-                        </form>
-                    </div>
+
+                    <!-- Message Form Start -->
+
+<div class="message-container">
+    <h3>{% trans "What do you say about this website?" %}</h3>
+    <form class="message-form" method="POST" action="{% url 'base:index' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_phone">{% trans "Your Phone Number" %}</label>
+            <input type="text" name="phone" id="id_phone" class="form-control" placeholder="{% trans 'e.g., +1234567890' %}" required>
+        </div>
+        <div class="form-group">
+            <label for="id_message">{% trans "Your Message" %}</label>
+            <textarea name="message" id="id_message" class="form-control" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">{% trans "Send Message" %}</button>
+    </form>
+
+    {% if messages %}
+    <div class="alert-messages">
+        {% for msg in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+<!-- Message Form End -->
                 </div>
             </div>
             

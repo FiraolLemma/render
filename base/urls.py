@@ -6,4 +6,5 @@ app_name = 'base'
 
 urlpatterns = [
     path('', views.base, name='index'), 
+    path('messages/', views.message_list, name='message_list'),
 ]

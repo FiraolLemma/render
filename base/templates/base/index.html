@@ -1,4 +1,3 @@
-<!-- base\index.html -->
 {% extends 'base/base.html' %}
 
 {% load i18n %}
@@ -51,11 +50,11 @@
                 <span class="plan-label">{% trans "Active Users" %}</span>
             </div>
             <div class="plan-stat">
-                <span class="plan-number">100+</span>
+                <span class="plan-number">{{ items_count }}+</span>
                 <span class="plan-label">{% trans "Items for Sale" %}</span>
             </div>
             <div class="plan-stat">
-                <span class="plan-number">100+</span>
+                <span class="plan-number">{{ conversations_count }}+</span>
                 <span class="plan-label">{% trans "Conversations Started" %}</span>
             </div>
         </div>
