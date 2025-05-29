@@ -1,35 +1,84 @@
-/* Compact form styling */
+/* Modern form styling with improved layout and visual hierarchy */
+:root {
+    --primary-color: #4361ee;
+    --primary-hover: #3a56d4;
+    --secondary-color: #f8f9fa;
+    --text-color: #333;
+    --light-text: #6c757d;
+    --border-color: #e0e0e0;
+    --error-color: #e63946;
+    --success-color: #2a9d8f;
+    --section-bg: #f8f9fa;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
 .item-form-container {
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 15px;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 25px;
     background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .item-form-title {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.form-subtitle {
+    font-size: 0.95rem;
+    color: var(--light-text);
+    margin: 0;
+}
+
+.form-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-section {
+    background: var(--section-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.section-title {
+    font-size: 1.1rem;
+    margin-top: 0;
     margin-bottom: 15px;
-    text-align: center;
-    color: #333;
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
 .item-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 
 .form-group {
-    margin-bottom: 8px;
+    margin-bottom: 15px;
 }
 
 .form-group label {
     display: block;
-    font-size: 0.85rem;
-    margin-bottom: 3px;
-    color: #555;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    color: var(--text-color);
     font-weight: 500;
 }
 
@@ -37,94 +86,189 @@
 .form-group textarea,
 .form-group select {
     width: 100%;
-    padding: 8px 10px;
-    font-size: 0.85rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #f9f9f9;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: #fff;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
 }
 
 .form-group textarea {
-    min-height: 80px;
+    min-height: 120px;
     resize: vertical;
-}
-
-.form-group input[type="file"] {
-    padding: 5px;
-    background: transparent;
+    line-height: 1.5;
 }
 
 .errorlist {
-    color: #e74c3c;
-    font-size: 0.75rem;
-    margin-top: 3px;
-    padding-left: 15px;
+    color: var(--error-color);
+    font-size: 0.8rem;
+    margin-top: 5px;
+    padding-left: 0;
+    list-style: none;
+}
+
+.errorlist li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.errorlist li::before {
+    content: "⚠";
+    font-size: 0.9em;
 }
 
 .help-text {
     display: block;
-    font-size: 0.75rem;
-    color: #777;
-    margin-top: 3px;
+    font-size: 0.8rem;
+    color: var(--light-text);
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Image upload styling */
+.image-upload {
+    position: relative;
+}
+
+.upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.upload-label:hover {
+    border-color: var(--primary-color);
+    background-color: rgba(67, 97, 238, 0.05);
+}
+
+.upload-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.upload-text {
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.file-info {
+    font-size: 0.85rem;
+    color: var(--light-text);
+}
+
+#id_sub_images {
+    position: absolute;
+    opacity: 0;
+    width: 0.1px;
+    height: 0.1px;
+    overflow: hidden;
+}
+
+.preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.preview-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+/* Form actions */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
 }
 
 .submit-btn {
-    background-color: #4a6bff;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary-color);
     color: white;
     border: none;
-    padding: 8px 15px;
-    font-size: 0.9rem;
-    border-radius: 4px;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 5px;
+    transition: var(--transition);
 }
 
 .submit-btn:hover {
-    background-color: #3a5bef;
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Make file input more compact */
-#id_sub_images {
-    font-size: 0.8rem;
-    padding: 4px;
+.btn-icon {
+    font-weight: bold;
 }
 
 /* Responsive adjustments */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .item-form-container {
-        margin: 10px;
-        padding: 10px;
+        margin: 15px;
+        padding: 20px;
     }
     
     .item-form-title {
-        font-size: 1.1rem;
+        font-size: 1.5rem;
+    }
+    
+    .form-section {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .item-form-container {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .item-form-title {
+        font-size: 1.3rem;
     }
     
     .form-group input,
     .form-group textarea,
     .form-group select {
-        padding: 6px 8px;
-        font-size: 0.8rem;
+        padding: 8px 10px;
     }
     
     .submit-btn {
-        padding: 7px 12px;
-        font-size: 0.85rem;
-    }
-}
-
-@media (max-width: 400px) {
-    .item-form-container {
-        margin: 5px;
-        padding: 8px;
+        padding: 10px 18px;
+        width: 100%;
+        justify-content: center;
     }
     
-    .item-form {
-        gap: 8px;
-    }
-    
-    .form-group label {
-        font-size: 0.8rem;
+    .upload-label {
+        padding: 20px;
     }
 }

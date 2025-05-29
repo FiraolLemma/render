@@ -5,6 +5,8 @@ from .forms import ItemForm
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 class ItemListView(ListView):
     model = Item
     template_name = 'items/item_list.html'
@@ -16,12 +18,13 @@ class ItemDetailView(DetailView):
     model = Item
     template_name = 'items/item_detail.html'
     context_object_name = 'item'
-
-class ItemCreateView(CreateView):
+    
+class ItemCreateView(LoginRequiredMixin, CreateView):
     model = Item
     form_class = ItemForm
     template_name = 'items/item_create.html'
     success_message = "Item was created successfully!"
+    login_url = 'login'
 
     def form_valid(self, form):
         if self.request.user.is_authenticated:
