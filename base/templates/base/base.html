@@ -21,7 +21,6 @@
                 <a class="navbar-brand" href="/" aria-label="{% trans 'Home' %}">
                     <span class="logo-text">{% trans "EthioPoultry" %}</span>
                 </a>
-                
             </div>
 
             <nav class="main-nav" aria-label="{% trans 'Main navigation' %}">
@@ -33,51 +32,36 @@
                         <a class="nav-link" href="{% url 'conversation:inbox' %}" aria-describedby="navbarUnreadDesc">
                             {% trans "Messages" %}
                             <span id="navbarUnread" class="unread-badge" aria-hidden="true">0</span>
-                        
                         </a>
                     </li>
                     <li><a class="nav-link" href="{% url 'contact:contact_us' %}">{% trans "Contact" %}</a></li>
                     <li><a class="nav-link" href="/about/">{% trans "About Us" %}</a></li>
-
-                    <!-- new -->
-
-                    <div class="language-container">
-        {% load i18n %}
-
-<form action="{% url 'set_language' %}" method="post" style="display: inline;">
-    {% csrf_token %}
-    <input name="next" type="hidden" value="{{ request.get_full_path }}">
-    
-    <select name="language" onchange="this.form.submit()" style="padding: 5px;">
-        {% get_current_language as LANGUAGE_CODE %}
-        {% get_available_languages as LANGUAGES %}
-        
-        {% for code, name in LANGUAGES %}
-            <option value="{{ code }}" {% if code == LANGUAGE_CODE %}selected{% endif %}>
-                {{ name }}
-            </option>
-        {% endfor %}
-    </select>
-</form>
-    </div>
-
+                    <li class="language-container">
+                        <form action="{% url 'set_language' %}" method="post">
+                            {% csrf_token %}
+                            <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                            <select name="language" onchange="this.form.submit()" aria-label="{% trans 'Select language' %}">
+                                {% get_current_language as LANGUAGE_CODE %}
+                                {% get_available_languages as LANGUAGES %}
+                                {% for code, name in LANGUAGES %}
+                                    <option value="{{ code }}" {% if code == LANGUAGE_CODE %}selected{% endif %}>
+                                        {{ name }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </form>
+                    </li>
                     <li><div class="date-and-time"></div></li>
                 </ul>
             </nav>
 
             <div class="nav-actions" id="navActions">
-                
-
                 {% if user.is_authenticated %}
-                    <a href="{% url 'items:item_create' %}" class="my-sell-btn">
-                        <i class="fas fa-plus" aria-hidden="true"></i> <span>{% trans "Sell" %}</span>
-                    </a>
+                    
                     <div class="user-dropdown">
                         <button class="my-btn-user" aria-haspopup="true" aria-expanded="false" aria-label="{% trans 'User menu' %}">
-                            
                             {% if user.profile.profile_picture %}
-                            <img src="{{ user.profile.profile_picture.url }}" 
-                         alt="Current Profile Picture" class="base_current-avatar">
+                            <img src="{{ user.profile.profile_picture.url }}" alt="{% trans 'Profile picture' %}" class="base_current-avatar">
                             {% else %}
                             <i class="fas fa-user-circle" aria-hidden="true"></i>
                             {% endif %}
@@ -100,24 +84,11 @@
                 <button class="nav-toggle" id="navToggle" aria-label="{% trans 'Toggle navigation' %}" aria-expanded="false" aria-controls="navMenu">
                     <span class="nav-toggle-icon" aria-hidden="true"><i class="fas fa-bars"></i></span>
                 </button>
-
             </div>
         </div>
     </header>
-
-    <main id="main-content" class="main-content">
-        {% if messages %}
-        <div class="messages-container">
-            {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">
-                {{ message }}
-            </div>
-            {% endfor %}
-        </div>
-        {% endif %}
         
         {% block content %}{% endblock %}
-    </main>
 
     <footer class="site-footer">
         <div class="footer-container">
@@ -151,36 +122,21 @@
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.youtube.com/channel/UC87ikLHxeF9SJH25JeVrceA" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
-
-                    <!-- Message Form Start -->
-
-<div class="message-container">
-    <h3>{% trans "What do you say about this website?" %}</h3>
+                    <div class="message-container">
+    <h3>{% trans "Feedback" %}</h3>
     <form class="message-form" method="POST" action="{% url 'base:index' %}">
         {% csrf_token %}
-        <div class="form-group">
-            <label for="id_phone">{% trans "Your Phone Number" %}</label>
-            <input type="text" name="phone" id="id_phone" class="form-control" placeholder="{% trans 'e.g., +1234567890' %}" required>
+        <div class="compact-form-group">
+            <input type="text" name="phone" id="id_phone" class="compact-form-control" placeholder="+1234567890" required>
+            <label for="id_phone">{% trans "Phone Number" %}</label>
         </div>
-        <div class="form-group">
+        <div class="compact-form-group">
+            <textarea name="message" id="id_message" class="compact-form-control" required></textarea>
             <label for="id_message">{% trans "Your Message" %}</label>
-            <textarea name="message" id="id_message" class="form-control" rows="4" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">{% trans "Send Message" %}</button>
+        <button type="submit" class="btn btn-primary">{% trans "Send" %}</button>
     </form>
-
-    {% if messages %}
-    <div class="alert-messages">
-        {% for msg in messages %}
-        <div class="alert alert-{{ message.tags }}">
-            {{ message }}
-        </div>
-        {% endfor %}
-    </div>
-    {% endif %}
 </div>
-
-<!-- Message Form End -->
                 </div>
             </div>
             
@@ -193,7 +149,6 @@
             </div>
         </div>
     </footer>
-
     <script src="{% static 'base/js/base.js' %}" defer></script>
     <script>
         window.USER_ID = "{{ request.user.id|default:'0' }}";
