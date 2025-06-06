@@ -34,7 +34,8 @@
                             <span id="navbarUnread" class="unread-badge" aria-hidden="true">0</span>
                         </a>
                     </li>
-                    <li><a class="nav-link" href="{% url 'contact:contact_us' %}">{% trans "Contact" %}</a></li>
+                    <li><a href ="{% url 'companies:index' %}" class="nav-link" > companies </a></li>
+                    <li><a class="nav-link" href="{% url 'contact:contact_us' %}">{% trans "Contact Us" %}</a></li>
                     <li><a class="nav-link" href="/about/">{% trans "About Us" %}</a></li>
                     <li class="language-container">
                         <form action="{% url 'set_language' %}" method="post">

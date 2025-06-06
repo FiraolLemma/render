@@ -1,0 +1,69 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load contact_extras %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'companies/css/ethiochicken.css' %}">
+  <style>
+    .ethiochicken-container {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      color: #222;
+      max-width: 800px;
+      margin: 40px auto;
+      background-blend-mode: lighten;
+      background-color: #f8fafcbb;
+    }
+    .ethiochicken-logo {
+      display: block;
+      margin: 0 auto 24px auto;
+      max-width: 220px;
+      height: auto;
+    }
+    .ethiochicken-title {
+      text-align: center;
+      margin-bottom: 12px;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a4d2e;
+    }
+    @media (max-width: 600px) {
+      .ethiochicken-container {
+        padding: 16px 5px;
+      }
+      .ethiochicken-title {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class="ethiochicken-container">
+  <img class="ethiochicken-logo" src="https://images.squarespace-cdn.com/content/v1/6532265431cb2861a8deb911/cf3a9b68-84fd-465f-a7d8-4394c6183f04/EC_Logo_PNG-01.png" alt="Ethiochicken Logo">
+  <h1 class="ethiochicken-title">ethiochicken feed manufacturies</h1>
+  <h2>ethiochicken</h2>
+  <p>Ethiochicken is a leading poultry company in Ethiopia, dedicated to improving the livelihoods of smallholder farmers through the provision of high-quality poultry products and services.</p>
+  <p>For more information, you can visit their official website: <a href="https://www.ethiochicken.com" target="_blank">Ethiochicken</a></p>
+  
+  <p>Ethiochicken is committed to empowering Ethiopian farmers by providing them with access to quality poultry breeds, feed, and veterinary services. Their mission is to enhance food security and create sustainable livelihoods in rural communities.</p>
+  <p>Ethiochicken's innovative approach includes training programs for farmers, ensuring they have the knowledge and skills to raise poultry effectively. They also focus on improving the overall poultry value chain in Ethiopia.</p>
+  <p>With a strong emphasis on quality and sustainability, Ethiochicken plays a crucial role in the Ethiopian poultry industry, contributing to economic growth and rural development.</p>
+  <p>For inquiries or more information, you can contact Ethiochicken through their official channels.</p>
+  <p>Contact Information:</p>
+  <ul>
+    <li>Email: info@ethiochicken.com </li>
+    <li>Phone: +251 116672229 / +251 944168359 / 8713 </li>
+    <li>Address: Ethio China Street, Kadco Group
+Building #2, 6th floor,
+Addis Ababa, Ethiopia</li>
+  </ul>
+  <p>Ethiochicken is a trusted partner for farmers, providing them with the resources they need to succeed in poultry farming.</p>
+</div>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'companies/js/ethiochicken.js' %}"></script>
+{% endblock %}

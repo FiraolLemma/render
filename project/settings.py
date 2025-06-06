@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'conversation',
     'users',
     'contact',
+    'companies',
 ]
 
 MIDDLEWARE = [

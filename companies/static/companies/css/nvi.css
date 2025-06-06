@@ -1,0 +1,41 @@
+
+  body {
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+    background-size: cover;
+  }
+  .nvi-container {
+    background: rgba(255,255,255,0.92);
+    border-radius: 12px;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 32px 36px 32px 36px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  }
+  .nvi-logo {
+    display: block;
+    margin: 0 auto 18px auto;
+    max-width: 180px;
+    height: auto;
+  }
+  .nvi-title {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1a4d2e;
+  }
+  .nvi-section-title {
+    margin-top: 24px;
+    font-size: 1.3rem;
+    color: #256d4a;
+    font-weight: 600;
+  }
+  .nvi-contact-list {
+    margin: 0 0 16px 0;
+    padding: 0 0 0 18px;
+    color: #333;
+  }
+  .nvi-container a {
+    color: #1a7f5a;
+    text-decoration: underline;
+  }
