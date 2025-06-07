@@ -1,0 +1,310 @@
+:root {
+  --primary-color: #e84c3d; /* EthioChicken red */
+  --secondary-color: #2dcc70; /* Complementary green */
+  --dark-color: #2c3e50;
+  --light-color: #ecf0f1;
+  --text-color: #333;
+  --text-light: #7f8c8d;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Base Styles */
+.ethiochicken-container {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.feed {
+  background-image: 
+  url('https://images.squarespace-cdn.com/content/v1/6532265431cb2861a8deb911/b0a7e409-b298-4a63-a4ad-5492ccd60891/Feed1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.breed {
+  background-image: 
+  url('https://images.squarespace-cdn.com/content/v1/6532265431cb2861a8deb911/affc2e17-923c-478c-bc8f-9ca38badef39/Chick_1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.hero-section {
+  padding: 4rem 1rem;
+  background-image: linear-gradient(rgba(20, 187, 28, 0.26), rgba(216, 185, 8, 0.26)), 
+  url('https://images.squarespace-cdn.com/content/v1/6532265431cb2861a8deb911/23704c53-6ad9-4d49-a83f-ffe927c5fc31/NewAboutUs.jpg?format=2500w');
+  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 1px 2px 4px rgba(6, 20, 22, 0.84);
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 20px;
+  z-index: 2;
+}
+
+.ethiochicken-logo {
+  max-height: 120px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.ethiochicken-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+}
+
+.cta-button:hover {
+  background-color: #c0392b;
+  transform: translateY(-3px);
+}
+
+/* Section Styles */
+.section-header {
+  text-align: center;
+  margin: 50px 0 30px;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-header i {
+  color: var(--secondary-color);
+}
+
+/* About Section */
+.about-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  margin-bottom: 40px;
+}
+
+.mission-vision {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.mission-card, .vision-card {
+  background-color: var(--light-color);
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.mission-card:hover, .vision-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mission-card i, .vision-card i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.mission-card h3, .vision-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--dark-color);
+}
+
+/* Value Section */
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.value-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  text-shadow: 1px 1px 1px rgb(255, 255, 255);
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.value-card i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.value-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: var(--dark-color);
+}
+
+/* Contact Section */
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.contact-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.contact-card i {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.contact-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--dark-color);
+}
+
+.contact-card p {
+  margin-bottom: 10px;
+}
+
+.copy-btn, .call-btn, .map-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 50px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.copy-btn:hover, .call-btn:hover, .map-btn:hover {
+  background-color: var(--dark-color);
+}
+
+/* Testimonial Section */
+.testimonial-card {
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.farmer-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.testimonial-text {
+  padding: 25px;
+}
+
+.testimonial-text p {
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.farmer-name {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-style: normal;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 400px;
+  }
+  
+  .ethiochicken-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .testimonial-card {
+    flex-direction: column;
+  }
+  
+  .farmer-img {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    height: 350px;
+  }
+  
+  .ethiochicken-title {
+    font-size: 1.8rem;
+  }
+  
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+}
