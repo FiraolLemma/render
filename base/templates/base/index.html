@@ -20,7 +20,6 @@
     <select name="language" onchange="this.form.submit()" style="padding: 5px;">
         {% get_current_language as LANGUAGE_CODE %}
         {% get_available_languages as LANGUAGES %}
-        
         {% for code, name in LANGUAGES %}
             <option value="{{ code }}" {% if code == LANGUAGE_CODE %}selected{% endif %}>
                 {{ name }}
