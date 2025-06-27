@@ -1,3 +1,18 @@
+
+
+
+
+Internal Database URL = postgresql://postgres_xf9a_user:AWs5EvfJmzQCtblnzyGFTiBIeYEQQ0LW@dpg-d1fhd4hr0fns73cf3n90-a/postgres_xf9a
+
+
+PSQL Command 
+ render psql dpg-d1fhd4hr0fns73cf3n90-a
+
+
+
+
+
+
 git init
 git add .
 git commit -m "Initial commit"
