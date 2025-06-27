@@ -39,3 +39,11 @@ def base(request):
 def message_list(request):
     all_messages = Message.objects.all().order_by('-created_at')
     return render(request, 'base/messages.html', {'messages': all_messages})
+
+def about_us(request):
+    return render(request, 'base/about_us.html')
+def admin_links(request):
+    return render(request, 'base/admin_links.html')
+
+def terms(request):
+    return render(request, 'base/terms.html')

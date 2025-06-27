@@ -1,0 +1,34 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'base/css/admin-links.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% if request.user.is_superuser %}
+    <h1>{% trans "Admin Links" %}</h1>
+    <p> Welcome superuser</p>
+    <ul>
+        <li>list of links</li>
+    </ul>
+{% endif %}
+
+{% if request.user.is_authenticated %}
+    <div class="user-info">
+        <p>{% trans "Logged in as:" %} {{ request.user.username }}</p>
+        <p>you are not a superuser</p>
+    </div>
+
+{% else %}
+    <div class="user-info">
+        <p>{% trans "You are not logged in." %}</p>
+    </div>
+    <a href="{% url 'users:login' %}" class="login-btn">{% trans "Login" %}</a>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'base/js/admin-links.js' %}" defer></script>
+{% endblock %}

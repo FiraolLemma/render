@@ -10,6 +10,9 @@ class Conversation(models.Model):
     class Meta:
         ordering = ('-modified_at',)
 
+    class Meta:
+        db_table = 'conversation_conversation'
+
 class ConversationMessage(models.Model):
     conversation = models.ForeignKey(Conversation, related_name='messages', on_delete=models.CASCADE)
     content = models.TextField()

@@ -34,6 +34,19 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+.support {
+  background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTazzu_3ptfH4qig_dulgbCh-h2MZ2TtVTA2A&s');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.training {
+  background-image: 
+  url('https://media.licdn.com/dms/image/v2/D4D22AQFUDDtjpzOeIw/feedshare-shrink_800/feedshare-shrink_800/0/1718968956482?e=2147483647&v=beta&t=NDeOI0ZnvOE2Z_92PBevlUOGAY6d0ZDW4drL-IcNrB8');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .hero-section {
   padding: 4rem 1rem;
   background-image: linear-gradient(rgba(20, 187, 28, 0.26), rgba(216, 185, 8, 0.26)), 
@@ -306,5 +319,221 @@
   
   .section-header h2 {
     font-size: 1.5rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root {
+  --primary-color: #e84c3d;
+  --secondary-color: #2dcc70; 
+  --dark-color: #2c3e50;
+  --light-color: #ecf0f1;
+  --text-color: #333;
+  --text-light: #7f8c8d;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* General Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  line-height: 1.6;
+  background-color: var(--light-color);
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.ethiochicken-logo {
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+
+.ethiochicken-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--light-color);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: var(--light-color);
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+}
+
+.cta-button:hover {
+  background-color: #c44133;
+  transform: translateY(-2px);
+}
+
+/* Price Update Section */
+.price-update-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  color: var(--dark-color);
+  display: inline-block;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--primary-color);
+}
+
+.price-update-content {
+  margin-bottom: 50px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.price-update-content:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.price-update-content h1 {
+  color: var(--primary-color);
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.price-update-content p {
+  color: var(--text-light);
+}
+
+/* Tables */
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+}
+
+.price-table th {
+  background-color: var(--dark-color);
+  color: white;
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.price-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--light-color);
+}
+
+.price-table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.price-table tr:hover {
+  background-color: rgba(233, 76, 61, 0.1);
+}
+
+.price-table td:nth-child(3) {
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: right;
+}
+
+.chickens {
+  color: var(--dark-color);
+  font-weight: 600;
+}
+
+.feed {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ethiochicken-title {
+    font-size: 2rem;
+  }
+  
+  .price-table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .price-table th,
+  .price-table td {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    height: auto;
+    padding: 60px 20px;
+  }
+  
+  .price-update-content {
+    padding: 20px;
+  }
+  
+  .price-table {
+    font-size: 0.9rem;
   }
 }

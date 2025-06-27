@@ -9,7 +9,7 @@
 
 {% block content %}
 <div class="messages-container">
-    <h2>Messages Received</h2>
+    <h2>{% trans "Messages Received" %}</h2>
     
     {% if messages %}
         <div class="message-list">
@@ -26,7 +26,7 @@
             {% endfor %}
         </div>
     {% else %}
-        <p>No messages yet.</p>
+        <p>{% trans "No messages yet." %}</p>
     {% endif %}
 </div>
 {% endblock %}

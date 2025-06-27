@@ -195,4 +195,4 @@ document.addEventListener('DOMContentLoaded', function() {
             observer.observe(logo);
         });
     }
-});
+}); 

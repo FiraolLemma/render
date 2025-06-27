@@ -1,3 +1,20 @@
+document.getElementById('navToggle').addEventListener('click', function() {
+    this.classList.toggle('active');
+    
+    // Add ripple effect
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple-effect';
+    this.appendChild(ripple);
+    
+    // Remove ripple after animation
+    setTimeout(() => {
+        ripple.remove();
+    }, 600);
+});
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Navigation toggle for all screen sizes
     const navToggle = document.getElementById('navToggle');
@@ -79,26 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Update unread message count
-    function updateUnreadCount() {
-        if (window.USER_ID && window.USER_ID !== '0') {
-            fetch(`/api/conversations/unread/`)
-                .then(response => {
-                    if (!response.ok) throw new Error('Network response was not ok');
-                    return response.json();
-                })
-                .then(data => {
-                    const unreadBadge = document.getElementById('navbarUnread');
-                    if (unreadBadge) {
-                        unreadBadge.textContent = data.unread_count || '0';
-                        unreadBadge.style.display = data.unread_count > 0 ? 'flex' : 'none';
-                    }
-                })
-                .catch(error => console.error('Error fetching unread count:', error));
-        }
-    }
-    
-    // Initialize unread count
-    updateUnreadCount();
     
     // Update date and time
     function updateDateTime() {
@@ -313,4 +310,34 @@ document.addEventListener('DOMContentLoaded', function() {
             button.style.transform = 'translateY(0)';
         });
     });
+});
+
+
+
+
+
+
+
+
+// base/static/base/js/base.js
+document.addEventListener('DOMContentLoaded', function() {
+    const unreadBadge = document.getElementById('navbarUnread');
+    
+    function fetchUnreadCount() {
+        fetch(UNREAD_COUNT_API_URL)
+        .then(response => response.json())
+            .then(data => {
+                if (data.total_unread > 0) {
+                    unreadBadge.textContent = data.total_unread;
+                    unreadBadge.style.display = 'inline-block';
+                } else {
+                    unreadBadge.style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching unread count:', error);
+            });
+    }
+    fetchUnreadCount();
+    setInterval(fetchUnreadCount, 30000);
 });
